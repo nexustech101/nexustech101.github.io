@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Git Tutorial</title>
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+      .container {
+        background-color: white;
+        border-radius: 8px;
+        padding: 20px;
+        margin-top: 50px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      }
+      code,
+      pre {
+        background-color: #2d2d2d;
+        color: #8ec07c;
+      }
+      pre {
+        padding: 10px;
+        border-radius: 4px;
+      }
+      h2 {
+        color: #375a7f;
+      }
+      p {
+        font-size: 1.1em;
+        line-height: 1.6em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 id="tutorial-title"></h1>
+      <p id="tutorial-introduction"></p>
+
+      <div id="tutorial-sections"></div>
+
+      <p id="tutorial-conclusion"></p>
+    </div>
+    <script>
+      // Your JSON data URL
+      const dataUrl = "./js/data.json";
+
+      fetch(dataUrl)
+        .then((response) => response.json())
+        .then((data) => {
+          document.getElementById("tutorial-title").innerText = data.title;
+          document.getElementById("tutorial-introduction").innerText =
+            data.introduction;
+          document.getElementById("tutorial-conclusion").innerText =
+            data.conclusion;
+
+          const sectionsDiv = document.getElementById("tutorial-sections");
+          data.sections.forEach((section) => {
+            const sectionEl = document.createElement("div");
+            sectionEl.className = "my-4";
+
+            const titleEl = document.createElement("h2");
+            titleEl.innerText = section.title;
+            sectionEl.appendChild(titleEl);
+
+            section.steps.forEach((step) => {
+              const stepEl = document.createElement("div");
+              stepEl.className = "mb-3";
+
+              const instructionEl = document.createElement("p");
+              instructionEl.textContent = step.instruction.replace(
+                /(`[^`]+`)/g,
+                "<code>$1</code>"
+              );
+              stepEl.appendChild(instructionEl);
+
+              if (step.code) {
+                const codeEl = document.createElement("pre");
+                codeEl.textContent = step.code;
+                stepEl.appendChild(codeEl);
+              }
+
+              if (step.note) {
+                const noteEl = document.createElement("p");
+                noteEl.className = "text-muted";
+                noteEl.textContent = step.note.replace(
+                  /(`[^`]+`)/g,
+                  "<code>$1</code>"
+                );
+                stepEl.appendChild(noteEl);
+              }
+
+              sectionEl.appendChild(stepEl);
+            });
+
+            sectionsDiv.appendChild(sectionEl);
+          });
+        })
+        .catch((error) => console.error("Error fetching the data:", error));
+    </script>
+  </body>
+</html>

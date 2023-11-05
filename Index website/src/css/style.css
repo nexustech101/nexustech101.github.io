@@ -1,0 +1,328 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  text-align: center;
+  display: block;
+
+  color: #f0f0f0; /* Light text color */
+  background-color: #333; /* Dark background color */
+  font-family: Arial, sans-serif;
+
+  margin: 0;
+  padding: 0;
+}
+
+body::-webkit-scrollbar {
+  width: 12px; /* Adjust width for your preference */
+}
+
+body::-webkit-scrollbar-track {
+  background-color: #222;
+  border-radius: 10px; /* Adjust border-radius for your preference */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #555;
+  border-radius: 6px; /* Adjust border-radius for your preference */
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background-color: #777;
+}
+
+h1 {
+  color: #e0e0e0;
+}
+
+#backgroundVideo {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -2;
+  transform: translateX(-50%) translateY(-50%);
+  background-size: cover;
+  transition: 1s opacity;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3); /* Black background with 60% opacity */
+  z-index: -1; /* Place the overlay on top of the video but behind the content */
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2em 50px;
+  background-color: transparent;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-logo {
+  height: 50px; /* Adjust as per your logo's aspect ratio */
+  cursor: pointer;
+}
+
+.navbar-text {
+  color: #fff;
+  flex-grow: 2;
+  text-align: center;
+  font-size: 20px;
+  margin: 0.5em 2em;
+}
+
+.navbar-button {
+  background-color: transparent;
+  color: #fff;
+  border: 1px solid #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar-button:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+button,
+select {
+  margin-top: 20px;
+}
+
+/* Style the dropdown options */
+#repoDropdown option {
+  background-color: #f8f8f8; /* Light gray background */
+  color: #333; /* Text color */
+  padding: 4px 2px; /* Padding for better spacing */
+}
+
+/* Style the dropdown options on hover (might not work on all browsers) */
+#repoDropdown option:hover {
+  background-color: #e0e0e0; /* Darker gray background on hover */
+}
+
+.btn-custom-border {
+  border: 2px solid #494949; /* This is a black border; adjust as needed */
+  color: #000; /* Text/icon color; adjust as needed */
+  background-color: whitesmoke; /* Makes the button background transparent */
+  width: 35px;
+  border-radius: 4px;
+}
+
+.btn-custom-border:hover {
+  background-color: #f5f5f5; /* Light gray background on hover for interactivity; adjust as needed */
+}
+
+.full-height {
+  /* min-height: 100vh; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 20vh;
+}
+
+/* For Chrome, Safari, and newer versions of Edge */
+.git-container::-webkit-scrollbar {
+  width: 12px; /* Adjust width for your preference */
+}
+
+.git-container::-webkit-scrollbar-track {
+  background-color: #222;
+  border-radius: 10px; /* Adjust border-radius for your preference */
+}
+
+.git-container::-webkit-scrollbar-thumb {
+  background-color: #555;
+  border-radius: 6px; /* Adjust border-radius for your preference */
+}
+
+.git-container::-webkit-scrollbar-thumb:hover {
+  background-color: #777;
+}
+
+.link-container {
+  background-color: #444;
+  background-size: cover; 
+  background-position: center; 
+  margin-bottom: 15px;
+  padding: 15px;
+  border-radius: 5px;
+  color: #f0f0f0; 
+}
+
+.link-pill {
+  display: inline-block;
+  padding: 2px 7px;
+  border-radius: 10px;
+  background-color: #1f1f1f; 
+  color: #fff; 
+  margin-bottom: 10px;
+}
+.link-title,
+.link-text {
+  color: #f0f0f0; 
+  margin: 5px 0; 
+}
+
+.link-button {
+  display: inline-block;
+  color: #f0f0f0; 
+  background-color: aliceblue;
+  border: 1px solid aliceblue; 
+  padding: 5px 10px; 
+  margin: 0;
+  text-decoration: none;
+  border-radius: 3px;
+  transition: background-color 0.3s, color 0.3s; 
+}
+
+.link-flex {
+  display: flex;
+  gap: 1em;
+}
+
+.link-button:hover,
+.link-button:focus {
+  color: #333;
+  background-color: #f0f0f0;
+}
+
+.navbar-nav .nav-link {
+  font-size: 20px;
+  font-weight: 500;
+  color: white;
+}
+.navbar-nav .nav-link:hover {
+  text-decoration: underline;
+}
+
+.sandbox {
+  display: none;
+  background-color: #272822;
+  color: #f8f8f2;
+  text-align: left;
+
+  height: 600px;
+  width: 70vw;
+
+  padding: 20px;
+  padding-left: 0;
+  margin-left: 0;
+  margin: 20px auto;
+
+  border-radius: 10px;
+  overflow: auto;
+}
+/* For Chrome, Safari, and newer versions of Edge */
+.sandbox::-webkit-scrollbar {
+  width: 12px;
+}
+.sandbox::-webkit-scrollbar-track {
+  background-color: #222;
+  border-radius: 10px;
+}
+.sandbox::-webkit-scrollbar-thumb {
+  background-color: #555;
+  border-radius: 6px;
+}
+.sandbox::-webkit-scrollbar-thumb:hover {
+  background-color: #777;
+}
+
+.file-type-pill {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 15px;
+  background-color: #4caf50; /* Green background */
+  color: #fff; /* White text */
+  margin-bottom: 10px; /* Space below the pill */
+}
+
+.git-container {
+  display: none;
+  max-width: 70vw;
+  height: 50vh;
+  background-color: transparent;
+  border-radius: 10px;
+  margin: 10em auto;
+  padding: 20px;
+  overflow-y: scroll;
+  scrollbar-color: #555 #222;
+}
+
+/* Mobile view */
+@media only screen and (max-width: 768px) {
+  .git-container {
+    max-width: 90vw; /* Increase width for smaller screens */
+    margin: 5em auto; /* Adjust margin for smaller screens */
+  }
+
+  .link-container {
+    padding: 10px; /* Reduce padding for smaller screens */
+  }
+
+  .link-title,
+  .link-text {
+    font-size: 14px; /* Reduce font size for smaller screens */
+    margin: 3px 0; /* Reduce margin for smaller screens */
+  }
+
+  .link-button {
+    padding: 5px; /* Adjust padding for smaller screens */
+    font-size: 12px; /* Reduce font size for smaller screens */
+  }
+
+  .sandbox {
+    width: 90vw; /* Increase width for smaller screens */
+    padding: 15px; /* Reduce padding for smaller screens */
+    font-size: 14px; /* Reduce font size for smaller screens */
+  }
+
+  .sandbox button {
+    padding: 5px; /* Adjust padding for smaller screens */
+    font-size: 12px; /* Reduce font size for smaller screens */
+  }
+}
+
+/* Tablet view */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  .git-container {
+    max-width: 80vw; /* Adjust width for tablet screens */
+  }
+
+  .link-title,
+  .link-text {
+    font-size: 16px; /* Adjust font size for tablet screens */
+  }
+
+  .link-button {
+    font-size: 14px; /* Adjust font size for tablet screens */
+  }
+
+  .sandbox {
+    width: 85vw; /* Adjust width for tablet screens */
+    font-size: 16px; /* Adjust font size for tablet screens */
+  }
+
+  .sandbox button {
+    font-size: 14px; /* Adjust font size for tablet screens */
+  }
+}

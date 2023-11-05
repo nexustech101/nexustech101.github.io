@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism-okaidia.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/line-numbers/prism-line-numbers.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.14.0/beautify.min.js"></script>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <title>Your GitHub Repos</title>
+    <!-- Add CSS and JS links here -->
+  </head>
+  <body>
+    <div class="overlay"></div>
+    <video autoplay muted id="backgroundVideo">
+      <source type="video/mp4" src="/assets/video/video.mp4" />
+      Your browser does not support the video tag.
+    </video>
+
+    <nav class="navbar navbar-expand-lg">
+      <a class="navbar-brand" href="#">
+        <img
+          src="../assets/images/iconmonstr-chart-21-120.png"
+          width="50"
+          height="50"
+          alt="Logo Description"
+        />
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto mr-5">
+          <li>
+            <form id="searchForm">
+              <input
+                type="text"
+                id="searchBar"
+                placeholder="Search Repository..."
+              />
+            </form>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="stats.html">My Stats</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="tutorial.html">Git Tutorial</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+        </ul>
+        <button class="navbar-button btn btn-light ml-3">Contact</button>
+      </div>
+    </nav>
+
+    <div class="container mt-5 full-height" style="z-index: 100">
+      <h1 class="text-center mb-4">GitHub Repositories</h1>
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="repoDropdown"
+                >Repositories</label
+              >
+            </div>
+            <select class="custom-select" id="repoDropdown">
+              <!-- Repositories will be populated here using JavaScript -->
+            </select>
+          </div>
+          <div class="btn-group" role="group">
+            <a id="repoLink" href="#" target="_blank" class="btn btn-primary"
+              >Visit Repo</a
+            >
+            <button id="copyButton" class="btn-custom-border">
+              <i class="fas fa-clipboard"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="git-container">
+      <div id="repoCards">
+        <!-- Link containers will be populated here using JavaScript -->
+        <div class="link-container">
+          <h5 class="link-title">${item.name}</h5>
+          <p class="link-text">${item.type}</p>
+          <a href="${item.html_url}" target="_blank" class="link-button"
+            >View on GitHub</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <code id="sandbox" class="sandbox">
+      <!-- Code will be displayed here -->
+    </code>
+
+    <!-- Add JavaScript to handle dropdown copy, and request functionality -->
+    <script src="js/index.js"></script>
+    <script src="js/search.js"></script>
+  </body>
+</html>
